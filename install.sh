@@ -13,7 +13,19 @@ echo "Installing GitHub Copilot CLI..."
 
 # Detect platform
 case "$(uname -s || echo "")" in
-  Darwin*) PLATFORM="darwin" ;;
+  Darwin*)
+    # Check if we're running on iPhone/iPad (iOS) rather than macOS.
+    # `sysctl kern.ostype` returns "iOS" on iOS devices and "Darwin" on macOS.
+    if [ "$(sysctl -n kern.ostype 2>/dev/null)" = "iOS" ]; then
+      echo "iPhone/iPad (iOS) detected. The install script does not support iOS directly."
+      echo "Please install via npm instead:"
+      echo ""
+      echo "  npm install -g @github/copilot"
+      echo ""
+      echo "For more information, see https://gh.io/install-copilot-readme"
+      exit 1
+    fi
+    PLATFORM="darwin" ;;
   Linux*) PLATFORM="linux" ;;
   *)
     if command -v winget >/dev/null 2>&1; then

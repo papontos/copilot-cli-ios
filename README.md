@@ -28,6 +28,7 @@ We're still early in our journey, but with your feedback, we're rapidly iteratin
 - **Linux**
 - **macOS**
 - **Windows**
+- **iPhone/iPad** (iOS)
 
 ### Prerequisites
 
@@ -85,7 +86,7 @@ winget install GitHub.Copilot.Prerelease
 ```
 
 
-Install with [npm](https://www.npmjs.com/package/@github/copilot) (macOS, Linux, and Windows):
+Install with [npm](https://www.npmjs.com/package/@github/copilot) (macOS, Linux, Windows, and iPhone):
 
 ```bash
 npm install -g @github/copilot
@@ -94,6 +95,15 @@ npm install -g @github/copilot
 ```bash
 npm install -g @github/copilot@prerelease
 ```
+
+
+Install on **iPhone/iPad** (iOS) using a terminal app such as [a-Shell](https://apps.apple.com/app/a-shell/id1473805438) with Node.js available:
+
+```bash
+npm install -g @github/copilot
+```
+
+> **Note:** The `curl`/`wget` install script is not supported on iPhone. Use the npm installation method above.
 
 
 ### Launching the CLI
